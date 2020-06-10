@@ -18,7 +18,7 @@ public class Page {
 
     public Page(Integer itemsPerPage) {
         this.currentPage = 1;
-        this.itemsPerPage = itemsPerPage;
+        this.itemsPerPage = itemsPerPage == null || itemsPerPage < 50 ? 50 : itemsPerPage;
         this.totalPages = Integer.MAX_VALUE;
     }
 
