@@ -33,7 +33,7 @@ public class CountryService {
     public List<Item> getTopThreeCountriesWithLowestPopulation(Integer year, Integer countriesPerPage) {
         return service.getCountries(year, new Page(countriesPerPage))
                 .stream()
-                .skip(47) // Skip the first 47 elements, because they are not countries but regions
+                .skip(TOTAL_NUMBER_OF_REGIONS) // Skip the first 47 elements, because they are not countries but regions
                 .filter(it -> it != null && it.getPopulation() != null) // Filter items that has null as value
                 .sorted(Comparator.comparing(Item::getPopulation))
                 .limit(NUMBER_OF_COUNTRIES)
